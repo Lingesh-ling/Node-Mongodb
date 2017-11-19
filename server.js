@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
+const _ = require('lodash');
 const {ObjectId} = require('mongodb');
 
 const {mongoose} = require('./db/mongo.js');
@@ -43,6 +43,24 @@ app.delete('/Score/:id', (req, res) => {
     return res.send('wrong');
   }
   Scores.findByIdAndRemove(id).then((doc) => {
+    res.send(doc)
+  }).catch((e) => {
+    res.send(e)
+  })
+})
+
+
+
+app.patch('/Score/:id', (req, res) => {
+  var id = req.params.id;
+  var body = _.pick(req.body,['dhawan']);
+  body.Kohli = 8000;
+
+
+  if(!ObjectId.isValid(id)) {
+    return res.send('wrong');
+  }
+  Scores.findByIdAndUpdate(id,{$set:body},{new:true}).then((doc) => {
     res.send(doc)
   }).catch((e) => {
     res.send(e)
