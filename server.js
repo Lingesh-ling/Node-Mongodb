@@ -36,6 +36,20 @@ Scores.find().then((doc) => {
 });
 })
 
+app.delete('/Score/:id', (req, res) => {
+  var id = req.params.id;
+
+  if(!ObejectId.isValid(id)) {
+    return res.send('wrong');
+  }
+  Score.findByIdAndRemove(id).then((doc) => {
+    res.send(doc)
+  }).catch((e) => {
+    res.send(e)
+  })
+})
+
+
 app.listen(port, () => {
   console.log('2')
 })
