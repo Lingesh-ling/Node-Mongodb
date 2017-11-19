@@ -73,7 +73,7 @@ app.post('/users', (req,res) => {
 
   var user = new users(body);
 
-  users.save().then((doc) => {res.send(doc)}).catch((e) => {res.send(e)})
+  user.save().then((doc) => {res.send(doc)}).catch((e) => {res.send(e)})
 
 })
 
