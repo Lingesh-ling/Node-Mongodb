@@ -5,11 +5,11 @@ var users = mongoose.model('users', {
   email: {
     type: String,
     required: true,
+    unique:true,
     validate:{
     validator: validator.isEmail,
     message:'must be valid email'
-  },
-  unique:true
+  }
   },
   password: {
     type: String,
