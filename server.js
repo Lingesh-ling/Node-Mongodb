@@ -6,7 +6,7 @@ const {ObjectId} = require('mongodb');
 const {mongoose} = require('./db/mongo.js');
 const {Scores} = require('./model/India.js')
 
-var port = 3000;
+var port = process.env.PORT || 3000;
 
 var app = express();
 
@@ -36,6 +36,6 @@ Scores.find().then((doc) => {
 });
 })
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log('2')
 })
