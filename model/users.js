@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 var validator = require('validator');
 
-var userss = mongoose.model('userss', {
+var userdetails = mongoose.model('userdetails', {
   email: {
     type: String,
     required: true,
@@ -29,5 +29,5 @@ var userss = mongoose.model('userss', {
 })
 
 module.exports = {
-  userss
+  userdetails
 }

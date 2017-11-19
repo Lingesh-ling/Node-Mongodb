@@ -5,7 +5,7 @@ const {ObjectId} = require('mongodb');
 
 const {mongoose} = require('./db/mongo.js');
 const {Scores} = require('./model/India.js');
-const {userss} = require('./model/users.js')
+const {userdetails} = require('./model/users.js')
 
 var port = process.env.PORT || 3000;
 
@@ -71,7 +71,7 @@ app.patch('/Score/:id', (req, res) => {
 app.post('/userss', (req,res) => {
   var body = _.pick(req.body, ['email','password']);
 
-  var userr = new userss(body);
+  var userr = new userdetails(body);
 
   userr.save().then((doc) => {res.send(doc)}).catch((e) => {res.send(e)})
 
