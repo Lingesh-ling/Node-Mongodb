@@ -53,7 +53,7 @@ app.delete('/Score/:id', (req, res) => {
 
 app.patch('/Score/:id', (req, res) => {
   var id = req.params.id;
-  var body = _.pick(req.body,['dhawan']);
+  var body = _.pick(req.body,['Dhawan']);
   body.Kohli = 8000;
 
 
