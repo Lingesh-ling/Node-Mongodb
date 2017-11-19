@@ -14,7 +14,7 @@ var userss = mongoose.model('userss', {
   password: {
     type: String,
     require:true,
-    minLength:6
+    minlength:6
   },
   tokens:[{
     access: {
