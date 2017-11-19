@@ -4,7 +4,8 @@ const _ = require('lodash');
 const {ObjectId} = require('mongodb');
 
 const {mongoose} = require('./db/mongo.js');
-const {Scores} = require('./model/India.js')
+const {Scores} = require('./model/India.js');
+const {users} = require('./model/users.js')
 
 var port = process.env.PORT || 3000;
 
@@ -65,6 +66,15 @@ app.patch('/Score/:id', (req, res) => {
   }).catch((e) => {
     res.send(e)
   })
+})
+
+app.post('/users', (req,res) => {
+  var body = _.pick(req.body, ['email','password']);
+
+  var user = new users(body);
+
+  users.save().then((doc) => {res.send(doc)}).catch((e) => {res.send(e)})
+
 })
 
 
