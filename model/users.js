@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 var validator = require('validator');
 
-var userss = mongoose.model('users', {
+var userss = mongoose.model('userss', {
   email: {
     type: String,
     required: true,
